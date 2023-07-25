@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>salary_details</title>
+</head>
+<style>
+table,th,td{
+    border-collapse:collapse;
+    border:1px solid black
+
+    }
+    body {
+    background-color:powderblue;
+
+     }
+
+
+</style>
+<body>
+
+<table class="table table-success table-striped">
+    <tr>
+        <th>Username</th>
+        <th>Password</th>
+        <th>salary</th>
+        <th>status</th>
+        <th>Date</th>
+    </tr>
+    <tr>
+        {% for ob in newdata %}
+        <td>{{ob.username}}</td>
+        <td>{{ob.password}}</td>
+        <td>{{ob.salary}}</td>
+        <td>{{ob.status}}</td>
+        <td>{{ob.date}}</td>
+
+
+    </tr> {% endfor %}
+</table><br>
+</body>
+</html>

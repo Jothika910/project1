@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/html" xmlns="http://www.w3.org/1999/html"
+      xmlns="http://www.w3.org/1999/html" xmlns="http://www.w3.org/1999/html" xmlns="http://www.w3.org/1999/html"
+      xmlns="http://www.w3.org/1999/html" xmlns="http://www.w3.org/1999/html">
+<head>
+    {% load static %}
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <meta charset="UTF-8">
+    <title>newpage</title>
+</head>
+
+<style>
+table, th, td {
+border: 1px solid black;
+border-collapse: collapse;
+text-align: center;
+font-size: 20px;
+}
+.bg1{
+border-style:none;
+width:100%;
+height:650px;
+margin-top:-380px
+margin-left:750px;
+background:url("{% static 'abc.jpg' %}");
+background-size:cover;
+background-position:center
+}
+.table{
+text-color:black;
+padding:100px
+}
+</style>
+<body>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+
+<div class="bg1">
+    <div class="table">
+
+<!--<form class="d-flex">-->
+<!--    {% csrf_token %}-->
+<!--        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">-->
+<!--        <button class="btn btn-outline-success" type="submit">Search</button>-->
+<!--      </form>-->
+                <br>
+<form  method="POST" style="text-align:center;">
+    {% csrf_token %}
+    <input type="text" name="username" placeholder="User Name">
+    <input type="time" name="logouttime" placeholder="Logout Time">
+    <input type="time" name="logintime" placeholder="Login Time">
+    <input type="number" name="status" placeholder="status">
+     <input type="submit" value="submit" >
+</form><br>
+
+ <table class="table table-success table-striped" >
+    <tr >
+        <th>User Name</th>
+        <th>login Time</th>
+        <th>Logout Time</th>
+        <th>Status</th>
+
+    </tr>
+    <tr>
+        {% for obj in newdata %}
+        <td>{{obj.username}}</td>
+        <td>{{obj.login_time}}</td>
+        <td>{{obj.logout_time}}</td>
+        <td>{{obj.status}}</td>
+
+    </tr>{% endfor %}
+ </table>
+            </div>
+        </div>
+
+
+</body>
+</html>
